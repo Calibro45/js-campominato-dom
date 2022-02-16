@@ -22,7 +22,7 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
     
     const bombeLivello = generaBombe(bombaMin, BombaMax);
     console.log(bombeLivello)
-    
+   
     for (let i = 1; i <= numBlocchi; i++) {
         
         const blocco = i;
@@ -48,18 +48,17 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
                 
                 this.classList.add('red');
 
-            } else {
+                punteggio.innerHTML = 'Hai perso il tuo punteggio è ' + score;
+
+            }  else {
                 
                 this.classList.add('blue');
-                
+    
                 square.removeEventListener('click',gameEvent);
     
                 score++;
-    
-                punteggio.innerHTML = score;
-    
             }
-
+            
         }
         
         square.addEventListener('click', gameEvent);
@@ -109,6 +108,9 @@ playBtn.addEventListener('click', function() {
     //console.log('click');
 
     reset();
+
+    score = 0;
+    punteggio.innerHTML = '';
         
     const difficulty = selectMenu.value;
     //console.log(difficulty);
@@ -124,7 +126,7 @@ playBtn.addEventListener('click', function() {
             console.log(difficulty);
             break;
         case '2':
-            generaLivello(49, 7, 1, 49);
+            generaLivello(49, 7, 1, 49, 49);
             console.log(difficulty);
         break;       
     } 
