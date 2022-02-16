@@ -75,8 +75,6 @@ playBtn.addEventListener('click', function() {
             
 })
 
-
-// generare 16 bombe casuali nel range del livello 
 // formula per otternere numeri random
 
 function bombaRandom(min, max) {
@@ -85,20 +83,31 @@ function bombaRandom(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
-const bombe = [];
-console.log(bombe);
+// generare 16 bombe casuali nel range del livello 
 
-do {
+function generaBombe(range1, range2) {
 
-    const numeriBombe = bombaRandom(1, 100);
-    //console.log(numeriBombe);
+    const bombe = [];
+    //console.log(bombe);
+    
+    do {
+    
+        const numeriBombe = bombaRandom(range1, range2);
+        //console.log(numeriBombe);
+    
+        if (bombe.includes(numeriBombe) === false) {
+    
+            bombe.push(numeriBombe);
+        }
+    
+    } while (bombe.length < 16);
 
-    if (bombe.includes(numeriBombe) === false) {
+    return bombe;
 
-        bombe.push(numeriBombe);
-    }
+}
 
-} while (bombe.length < 16);
+console.log(generaBombe(1,100));
+
 
 
 
