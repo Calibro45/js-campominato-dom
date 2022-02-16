@@ -41,26 +41,28 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
         campoMinatoWrap.append(square);
 
         // evento click colonna per gestire bck color
-        
-        square.addEventListener('click', function() {
 
+        function gameEvent() {
 
             if (bombeLivello.includes(parseInt(square.innerHTML))){
                 
                 this.classList.add('red');
-                
+
             } else {
-
-                this.classList.add('blue');
-
-                score++;
-
-                punteggio.innerHTML = score;
-
-            }
                 
+                this.classList.add('blue');
+                
+                square.removeEventListener('click',gameEvent);
+    
+                score++;
+    
+                punteggio.innerHTML = score;
+    
+            }
 
-        })
+        }
+        
+        square.addEventListener('click', gameEvent);
         
     }
     
