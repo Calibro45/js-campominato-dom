@@ -48,8 +48,7 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
 
                 this.classList.add('blue');
             }
-                
-            
+                 
         })
         
     }
@@ -108,11 +107,11 @@ playBtn.addEventListener('click', function() {
             console.log(difficulty);
             break;
         case '1':
-            generaLivello(81, 9);
+            generaLivello(81, 9, 1, 81);
             console.log(difficulty);
             break;
         case '2':
-            generaLivello(49, 7)
+            generaLivello(49, 7, 1, 49);
             console.log(difficulty);
             break;       
     } 
