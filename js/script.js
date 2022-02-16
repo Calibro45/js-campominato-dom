@@ -13,7 +13,7 @@ const campoMinatoWrap = document.querySelector('.campo-minato-wrap');
 //console.log(campoMinatoWrap);
 
 const punteggio = document.querySelector('.punteggio-wrap');
-console.log(punteggio);
+//console.log(punteggio);
 
 let score = 0;
 // funzione per generazione livello
@@ -22,11 +22,12 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
     
     const bombeLivello = generaBombe(bombaMin, BombaMax);
     console.log(bombeLivello)
-   
+    
     for (let i = 1; i <= numBlocchi; i++) {
         
         const blocco = i;
         //console.log(i);
+        
         
         const square = document.createElement('div');
         //console.log(square);
@@ -51,7 +52,7 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
                 punteggio.innerHTML = 'Hai perso il tuo punteggio è ' + score;
 
             }  else {
-                
+
                 this.classList.add('blue');
     
                 square.removeEventListener('click',gameEvent);
@@ -126,7 +127,7 @@ playBtn.addEventListener('click', function() {
             console.log(difficulty);
             break;
         case '2':
-            generaLivello(49, 7, 1, 49, 49);
+            generaLivello(49, 7, 1, 49);
             console.log(difficulty);
         break;       
     } 
