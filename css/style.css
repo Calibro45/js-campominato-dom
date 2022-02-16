@@ -76,8 +76,12 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+    border-right: 4px solid #7b7b7b;
+    border-bottom: 4px solid #7b7b7b;
     user-select: none;
+    background-color: #bdbdbd;
 }
 
 .blue {
@@ -92,5 +96,9 @@ img {
 
 .square:hover {
     cursor: pointer;
+}
+
+#punteggio {
+    text-align: center;
 }
 

@@ -4,14 +4,18 @@ con difficoltà 2 => tra 1 e 81
 con difficoltà 3 => tra 1 e 49 */ 
 
 const selectMenu = document.getElementById('difficulty');
-console.log(selectMenu);
+//console.log(selectMenu);
 
 const playBtn = document.getElementById('play-cta');
-console.log(playBtn);
+//console.log(playBtn);
 
 const campoMinatoWrap = document.querySelector('.campo-minato-wrap');
-console.log(campoMinatoWrap);
+//console.log(campoMinatoWrap);
 
+const punteggio = document.querySelector('.punteggio-wrap');
+console.log(punteggio);
+
+let score = 0;
 // funzione per generazione livello
 
 function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
@@ -37,18 +41,25 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
         campoMinatoWrap.append(square);
 
         // evento click colonna per gestire bck color
-
+        
         square.addEventListener('click', function() {
 
+
             if (bombeLivello.includes(parseInt(square.innerHTML))){
-
+                
                 this.classList.add('red');
-
+                
             } else {
 
                 this.classList.add('blue');
+
+                score++;
+
+                punteggio.innerHTML = score;
+
             }
-                 
+                
+
         })
         
     }
@@ -113,7 +124,7 @@ playBtn.addEventListener('click', function() {
         case '2':
             generaLivello(49, 7, 1, 49);
             console.log(difficulty);
-            break;       
+        break;       
     } 
             
 })
