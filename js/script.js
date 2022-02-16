@@ -49,6 +49,8 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
                 
                 this.classList.add('red');
 
+                square.removeEventListener('click',gameEvent);
+
                 punteggio.innerHTML = 'Hai perso il tuo punteggio è ' + score;
 
             }  else {
