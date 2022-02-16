@@ -14,7 +14,10 @@ console.log(campoMinatoWrap);
 
 // funzione per generazione livello
 
-function generaLivello(numBlocchi, numColonne) {
+function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
+    
+    const bombeLivello = generaBombe(bombaMin, BombaMax);
+    console.log(bombeLivello)
     
     for (let i = 1; i <= numBlocchi; i++) {
         
@@ -25,6 +28,7 @@ function generaLivello(numBlocchi, numColonne) {
         //console.log(square);
         
         square.innerHTML = blocco;
+        //console.log(square.innerHTML);
         
         square.classList.add('square');
         
@@ -36,44 +40,21 @@ function generaLivello(numBlocchi, numColonne) {
 
         square.addEventListener('click', function() {
 
-            this.classList.add('blue');
+            if (bombeLivello.includes(parseInt(square.innerHTML))){
+
+                this.classList.add('red');
+
+            } else {
+
+                this.classList.add('blue');
+            }
+                
+            
         })
         
     }
     
 }
-
-// funzione per resettare la griglia
-
-const reset = () => campoMinatoWrap.innerHTML = '';
-
-// evento bottone per generare livello
-
-playBtn.addEventListener('click', function() {
-    //console.log('click');
-
-    reset();
-        
-    const difficulty = selectMenu.value;
-    //console.log(difficulty);
-    
-    switch(difficulty) {
-        
-        case '0':
-            generaLivello(100, 10);
-            console.log(difficulty);
-            break;
-        case '1':
-            generaLivello(81, 9);
-            console.log(difficulty);
-            break;
-        case '2':
-            generaLivello(49, 7)
-            console.log(difficulty);
-            break;       
-    } 
-            
-})
 
 // formula per otternere numeri random
 
@@ -106,14 +87,34 @@ function generaBombe(range1, range2) {
 
 }
 
-console.log(generaBombe(1,100));
+// funzione per resettare la griglia
 
+const reset = () => campoMinatoWrap.innerHTML = '';
 
+// evento bottone per generare livello
 
+playBtn.addEventListener('click', function() {
+    //console.log('click');
 
-
-
-
-
-
-
+    reset();
+        
+    const difficulty = selectMenu.value;
+    //console.log(difficulty);
+    
+    switch(difficulty) {
+        
+        case '0':
+            generaLivello(100, 10, 1, 100);
+            console.log(difficulty);
+            break;
+        case '1':
+            generaLivello(81, 9);
+            console.log(difficulty);
+            break;
+        case '2':
+            generaLivello(49, 7)
+            console.log(difficulty);
+            break;       
+    } 
+            
+})

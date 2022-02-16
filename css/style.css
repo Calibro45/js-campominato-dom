@@ -77,10 +77,16 @@ img {
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    user-select: none;
 }
 
 .blue {
     background-color: #6495ed;
+    color: white;
+}
+
+.red {
+    background-color: red;
     color: white;
 }
 
