@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    background-color: #7fffd4;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-wrap {
+    max-width: 50px;
+}
+
+#difficulty {
+    width: 120px;
+}
+
+#play-cta {
+    padding: 0 30px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+#campo-minato {
+    margin-top: 115px;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.campo-minato-wrap {
+    width: 515px;
+    display: flex;
+    flex-wrap: wrap;
+    aspect-ratio: 1;
+    align-content: flex-start;
+}
+
+.square {
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.blue {
+    background-color: #6495ed;
+    color: white;
+}
+
+.square:hover {
+    cursor: pointer;
+}
+
