@@ -38,8 +38,6 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax, puntiVittoria
         square.classList.add('square');
         
         square.style.width = ('calc(100% / ' + numColonne);
-
-        celle.push(square);
         
         campoMinatoWrap.append(square);
 
