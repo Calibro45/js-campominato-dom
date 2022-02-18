@@ -18,7 +18,7 @@ const punteggio = document.querySelector('.punteggio-wrap');
 let score = 0;
 // funzione per generazione livello
 
-function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
+function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax, puntiVittoria) {
     
     const bombeLivello = generaBombe(bombaMin, BombaMax);
     console.log(bombeLivello)
@@ -38,37 +38,49 @@ function generaLivello(numBlocchi, numColonne, bombaMin, BombaMax) {
         square.classList.add('square');
         
         square.style.width = ('calc(100% / ' + numColonne);
+
+        celle.push(square);
         
         campoMinatoWrap.append(square);
 
         // evento click colonna per gestire bck color
 
+        square.addEventListener('click', gameEvent);
+
         function gameEvent() {
 
             if (bombeLivello.includes(parseInt(square.innerHTML))){
                 
-                this.classList.add('red');
-
-                square.removeEventListener('click',gameEvent);
-
-                punteggio.innerHTML = 'Hai perso il tuo punteggio è ' + score;
+                gameOver();
 
             }  else {
 
                 this.classList.add('blue');
     
-                square.removeEventListener('click',gameEvent);
+                this.removeEventListener('click', gameEvent);
     
                 score++;
+
+                if (score === puntiVittoria) {
+
+                    punteggio.innerHTML = 'complimenti hai vinto totalizzando ' + score;
+                }
             }
             
         }
+
+        function gameOver() {
         
-        square.addEventListener('click', gameEvent);
-        
+            square.classList.add('red');
+            punteggio.innerHTML = 'Hai perso il tuo punteggio è ' + score;
+            square.removeEventListener('click', gameEvent);
+
+        }
+
     }
     
 }
+
 
 // formula per otternere numeri random
 
@@ -101,6 +113,7 @@ function generaBombe(range1, range2) {
 
 }
 
+
 // funzione per resettare la griglia
 
 const reset = () => campoMinatoWrap.innerHTML = '';
@@ -121,15 +134,15 @@ playBtn.addEventListener('click', function() {
     switch(difficulty) {
         
         case '0':
-            generaLivello(100, 10, 1, 100);
+            generaLivello(100, 10, 1, 100, 84);
             console.log(difficulty);
             break;
         case '1':
-            generaLivello(81, 9, 1, 81);
+            generaLivello(81, 9, 1, 81, 65);
             console.log(difficulty);
             break;
         case '2':
-            generaLivello(49, 7, 1, 49);
+            generaLivello(49, 7, 1, 49, 33);
             console.log(difficulty);
         break;       
     } 
